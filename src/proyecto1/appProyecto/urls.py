@@ -1,8 +1,10 @@
 from django.urls import path
-from appProyecto.views import leer_profesor, leer_alumnos, index 
+from appProyecto.views import profesores , estudiantes, cursos, entregables, index
 
 urlpatterns = [
-    path("profesores/", leer_profesor),
-    path("alumnos/", leer_alumnos),
-    path("", index)
+    path("profesores/", profesores, name ='profesores'),
+    path("estudiantes/", estudiantes, name = 'estudiantes'),
+    path("cursos/", cursos, name = 'cursos'),
+    path("entregables/", entregables, name = 'entregables'),
+    path("", index, name = 'index'),
 ]
