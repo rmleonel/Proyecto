@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proyecto Django</title>
+</head>
+<body>
+    <h1>Primer template</h1>
+    <h2>Mi nombre es {{nombre}} {{apellido}}</h2>
+    {% for curso in cursos %}
+    <li>{{curso}}</li>
+    {% endfor %}
+</body>
+</html>
