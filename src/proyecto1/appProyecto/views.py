@@ -56,3 +56,30 @@ def formulario(request):
         return render(request,'index.html')
 
     return render(request, "formulario.html")
+
+def busqueda_camada(request):
+    if request.method == "GET":
+        camada = request.GET.get("camada")
+        print(f"Vamos a buscar la camada: {camada}")
+
+
+    return render(request, "busqueda_camada.html")
+
+def buscar_camada(request):
+    if request.method == "GET":
+
+        camada = request.GET.get("camada")
+
+        if camada is None:
+            return HttpResponse("Enviar la camada a buscar")
+        
+        #Siguiente paso buscar los datos
+
+        cursos = Curso.objects.filter(camada_icontains =camada)
+        contexto = {
+            "cursos": cursos,
+            "camada": camada,
+        }
+        return render(request, "busqueda.html", contexto)
+    
+    return HttpResponse(f"Se busco la camada : {camada}")
